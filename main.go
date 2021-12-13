@@ -60,7 +60,7 @@ func main() {
 		Callback: func(osPathname string, de *godirwalk.Dirent) error {
 			// For each file in the directory, check if it ends in ".jar"
 			ext := strings.ToLower(filepath.Ext(osPathname))
-			if ext == ".jar" || ext == ".war" {
+			if ext == ".jar" || ext == ".war" || ext == "ear" {
 				pool <- struct{}{}
 				// If it is, take a goroutine (thread) from the thread pool
 				// and check the jar.
